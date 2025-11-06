@@ -26,7 +26,7 @@ db.connect(err => { // Controlar los errores
 app.get('/OArt', (req, res) => {
     console.log('Ruta del endpoint accedida');
     db.query('SELECT * FROM Articulos', (err, result) => {
-        if(err) {
+        if (err) {
             console.error(err);
             console.error('Error de base de datos', err);
             return res.status(500).json({
