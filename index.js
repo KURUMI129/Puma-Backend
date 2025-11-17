@@ -39,9 +39,9 @@ app.get('/OArt', (req, res) => {
 
 // --- NUEVO ENDPOINT PARA LOGIN ---
 app.post('/login', (req, res) => {
-    const { correo, contraseña } = req.body; // Recibimos correo y contraseña
+    const { correo, contrasena } = req.body; // Recibimos correo y contraseña
 
-    if (!correo || !contraseña) {
+    if (!correo || !contrasena) {
         return res.status(400).json({
             error: 'Correo y contraseña son requeridos.'
         });
@@ -49,7 +49,7 @@ app.post('/login', (req, res) => {
 
     const query = 'SELECT * FROM Clientes WHERE Correo = ? AND Contraseña = ?';
 
-    db.query(query, [correo, contraseña], (err, result) => {
+    db.query(query, [correo, contrasena], (err, result) => {
         if (err) {
             console.error('Error de base de datos', err);
             return res.status(500).json({
